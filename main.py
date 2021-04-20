@@ -7,6 +7,7 @@ from RandomWordGenerator import RandomWord
 rw = RandomWord(max_word_size=5, constant_word_size=False)
 lst = rw.getList(num_of_words=50)
 # print(lst)
+# Should match with the current version of the Web browser
 driver = webdriver.Chrome(executable_path=r'C:/chromedriver/chromedriver.exe')
 
 driver.get("https://web.whatsapp.com/")
@@ -15,7 +16,7 @@ input("Please Scan QR CODE and press any key to continue: ")
 name = input("Enter the Name to whom you want to send the message: ").title()
 user = driver.find_element_by_css_selector(f'span[title="{name}"]')
 user.click()
-
+# may change inspect->select space -> right click -> copy ->xpath
 test_input = driver.find_element_by_xpath("/html/body/div/div[1]/div[1]/div[4]/div[1]/footer/div[1]/div[2]/div/div[2]")
 # time.sleep(10)
 total_msg = int(input("Enter the Number of messages you want to send: "))
